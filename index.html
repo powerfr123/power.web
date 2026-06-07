@@ -1,141 +1,203 @@
+<!DOCTYPE html>
 <html>
-<head><title>power's website
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>edito</title>
+
 <style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#111827;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
 h1{
-  color:yellow
-} 
+    margin-bottom:20px;
+}
+
+.field{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    background:#1f2937;
+    padding:12px;
+    border-radius:10px;
+}
+
+.label{
+    width:220px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:gray;
+    color:black;
+    padding:10px;
+    border-radius:8px;
+}
+
+.value{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.lock-btn,
+.copy-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.lock-btn{
+    background:#374151;
+    color:white;
+}
+
+.copy-btn{
+    background:#2563eb;
+    color:white;
+}
+
 </style>
-  <!--
-  <script>document.write("HellJco_Ki_Dos<br>")
-  var first=35,second=50,third=15;
-  
-  
-  
-  document.write(first);
-  document.write("<br>")
-  document.write(third)
-  document.write("<br>")
-  document.write(second)
-  
-  
-  </script> 
 </head>
-<body bgcolor="blue">
-<Center><h>Hello dost</h></Center>
-  <marque behaviuor="rtl">How are you </marque>
 
-</body> -->
-  <body bgcolor="black"><!--
-    <article style="color:">
-<h1 align="center">COMPUTER ARCHITECTURE</h1>
-<h2 style="color:yellow">1. Data Representation
-What It Is: Data representation refers to the methods used to encode data in a form that computers can process. This includes binary, octal, hexadecimal, and other forms of number representation.
-Why Important: It determines how data is stored, processed, and communicated between different parts of a computer system.
-Where Used: Everywhere in computing, including memory storage, data transmission, and processing in CPUs and GPUs.
-2. Data Types and Number Systems
-What It Is: Data types define the kind of data (e.g., integer, float, character) and the operations that can be performed on them. Number systems (binary, octal, hexadecimal) define how numerical data is represented.
-Why Important: Ensures data is interpreted correctly by software and hardware. Different number systems can simplify certain operations and improve readability.
-Where Used: Programming languages, data structures, databases, and hardware design.
-3. Binary Number System
-What It Is: A number system that uses two symbols, 0 and 1, to represent all values. It is the fundamental number system for digital computers.
-Why Important: Digital electronics and computers operate using binary logic.
-Where Used: All aspects of computer systems, including processors, memory, and digital circuits.
-4. Octal and Hexadecimal Number Systems
-What It Is: Octal (base-8) and hexadecimal (base-16) are number systems used for compact representation of binary data.
-Why Important: They simplify the reading and writing of long binary sequences and are often used in debugging and programming.
-Where Used: Memory addressing, debugging, assembly language programming, and digital electronics.
-5. Fixed Point Representation
-What It Is: A way of representing numbers with a fixed number of digits after the decimal point.
-Why Important: Useful for applications requiring consistent precision, particularly in systems with limited resources.
-Where Used: Embedded systems, real-time computing, financial applications, and digital signal processing.
-6. 1's and 2's Complement
-What It Is: Methods for representing negative numbers in binary. 1's complement inverts all bits, while 2's complement inverts all bits and adds one to the least significant bit.
-Why Important: Simplifies the design of arithmetic circuits and operations, particularly for subtraction and negative number handling.
-Where Used: CPU arithmetic units, digital signal processing, and low-level programming.
-7. Binary Fixed-Point Representation
-What It Is: A form of fixed-point representation where the number is expressed in binary with a fixed number of bits for the fractional part.
-Why Important: Allows for precise representation of fractional values in binary, which is crucial for certain calculations.
-Where Used
-</h2>
- </article> -->
- <article style="color:red">1. Importance of System Analysis and Design
-System Analysis and Design (SAD) is crucial for the following reasons:
+<body>
 
-Improves Efficiency: By analyzing and designing systems, businesses can streamline their operations and improve efficiency.
-Problem-Solving: Identifies and solves business problems by designing appropriate systems.
-Resource Optimization: Ensures optimal use of resources.
-Scalability and Flexibility: Helps create systems that can adapt to changing needs.
-Risk Management: Identifies potential risks early in the development process.
-2. Concept of System
-A system is a set of interrelated components working together to achieve a common goal. Each component contributes to the overall objective, and systems can be both physical (like a manufacturing assembly line) and abstract (like a software system).
+<div class="container">
 
-3. Characteristics and Types of Systems
-Characteristics:
+<h1 style="text-align:center;color:red;">DETAILS</h1>
 
-Interconnectivity: Components are connected and interact with each other.
-Boundary: Defines the scope and limits of the system.
-Environment: Everything outside the system boundary that influences it.
-Input and Output: Systems receive input from the environment, process it, and produce output.
-Types of Systems:
+<div class="field">
 
-Open Systems: Interact with the environment.
-Closed Systems: Do not interact with the environment.
-Deterministic Systems: Operate in a predictable manner.
-Probabilistic Systems: Operate in a manner that is not entirely predictable.
-Man-Made Information Systems: Designed and implemented by humans (e.g., information systems).
-4. System Development Life Cycle (SDLC)
-The SDLC is a framework that describes the phases involved in developing and maintaining information systems:
+    <div class="label">
+        First Name
+        <button class="copy-btn">📋</button>
+    </div>
 
-Planning: Define the scope and purpose of the system.
-Analysis: Gather and analyze requirements.
-Design: Create system architecture and detailed design.
-Implementation: Develop the actual system.
-Testing: Ensure the system works as intended.
-Deployment: Roll out the system to users.
-Maintenance: Perform ongoing support and maintenance.
-5. Waterfall Model
-The waterfall model is a linear and sequential approach to software development:
+    <input class="value" value="">
 
-Requirements Analysis: Gather and document requirements.
-System Design: Design the system architecture.
-Implementation: Write the code.
-Integration and Testing: Test the integrated system.
-Deployment: Deploy the system.
-Maintenance: Fix issues and update the system.
-6. Prototype Development Strategy
-This strategy involves creating a prototype (an early approximation of the final system) to:
+    <button class="lock-btn">🔓</button>
 
-Understand Requirements: Clarify and refine requirements.
-Early User Feedback: Get feedback from users early in the development process.
-Iterative Development: Allow for iterative improvement of the system.
-7. Software Crisis
-The software crisis refers to the difficulties encountered in software development, such as:
+</div>
 
-Project Overruns: Projects taking longer than expected.
-Cost Overruns: Exceeding budget.
-Unmet Requirements: Systems not meeting user needs.
-Maintenance Issues: Difficulty maintaining and updating systems.
-Poor Quality: Low-quality, unreliable software.
-8. Audit Trail
-An audit trail is a record of all changes and transactions in a system, providing:
+<div class="field">
 
-Traceability: Track changes and understand who did what.
-Accountability: Hold individuals accountable for their actions.
-Security: Detect and prevent unauthorized access and changes.
-Compliance: Meet legal and regulatory requirements.
-9. Role and Attributes of a System Analyst
-Role:
+    <div class="label">
+        Last Name
+        <button class="copy-btn">📋</button>
+    </div>
 
-Liaison: Acts as a bridge between stakeholders and the technical team.
-Problem Solver: Identifies and solves business problems.
-Requirements Gatherer: Elicits and documents requirements.
-Designer: Creates system designs and architecture.
-Attributes:
+    <input class="value" value="">
 
-Analytical Skills: Ability to analyze and solve complex problems.
-Communication Skills:</article> 
-  </body>
+    <button class="lock-btn">🔓</button>
+
+</div>
+
+<div class="field">
+
+    <div class="label">
+        e-mail(@gmail.com)
+        <button class="copy-btn">📋</button>
+    </div>
+
+    <input class="value" value="">
+
+    <button class="lock-btn">🔓</button>
+
+</div>
+
+<div class="field">
+
+    <div class="label">
+        Aadhaar No.
+        <button class="copy-btn">📋</button>
+    </div>
+
+    <input class="value" value="">
+
+    <button class="lock-btn">🔓</button>
+
+</div>
+
+<div class="field">
+
+    <div class="label">
+        Mobile No.
+        <button class="copy-btn">📋</button>
+    </div>
+
+    <input class="value" value="">
+
+    <button class="lock-btn">🔓</button>
+
+</div>
+
+</div>
+
+<script>
+
+function attachEvents(row){
+
+    const lock = row.querySelector('.lock-btn');
+    const value = row.querySelector('.value');
+    const copy = row.querySelector('.copy-btn');
+
+    let locked = false;
+
+    lock.onclick = () => {
+
+        locked = !locked;
+
+        value.readOnly = locked;
+
+        lock.textContent = locked ? '🔒' : '🔓';
+
+        if(locked){
+            value.style.background = '#ffe066';
+            value.style.color = '#000';
+        }
+        else{
+            value.style.background = '';
+            value.style.color = '';
+        }
+    };
+
+    copy.onclick = () => {
+
+        navigator.clipboard.writeText(value.value);
+
+        copy.textContent = '✓';
+
+        setTimeout(() => {
+            copy.textContent = '📋';
+        }, 1000);
+    };
+}
+
+document.querySelectorAll('.field').forEach(attachEvents);
+
+</script>
+
+</body>
 </html>
