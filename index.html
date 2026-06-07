@@ -44,7 +44,7 @@ h1{
     width:220px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-:space-between;
     background:gray;
     color:black;
     padding:10px;
@@ -314,10 +314,7 @@ async function loadRecords() {
 
         option.value = docSnap.id;
 
-        option.textContent =
-            (data.firstName || "") +
-            " " +
-            (data.lastName || "");
+        option.textContent = snapDoc.id;
 
         select.appendChild(option);
 
