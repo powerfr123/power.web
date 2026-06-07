@@ -230,11 +230,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const userRef = doc(db, "users", "test");
+let currentDocId = "test");
 
 async function loadData() {
-
-    const snap = await getDoc(userRef);
+    const userRef = 
+        doc(db, "users", currentDocId);
+    
+    const snap =
+        await getDoc(userRef);
 
     if (!snap.exists()) return;
 
@@ -257,6 +260,8 @@ async function loadData() {
 }
 
 async function saveData() {
+    const userRef =
+        doc(db, "users", currentDocId);
 
     await updateDoc(userRef, {
 
@@ -303,9 +308,19 @@ async function loadRecords() {
         select.appendChild(option);
 
     });
+    document.getElementById("recordList")
+.addEventListener("change", (e) => {
+
+    currentDocId = e.target.value;
+
+    loadData();
+
+});
 }
-loadRecords();
-loadData();
+await loadRecords();
+    currentDocId =
+    document.getElementById("recordList").value;
+await loadData();
 
 document.querySelectorAll(".value")
 .forEach(input => {
