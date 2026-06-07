@@ -213,7 +213,9 @@ import {
     getFirestore,
     doc,
     getDoc,
-    updateDoc
+    updateDoc,
+    collection,
+    getDocs
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -274,7 +276,35 @@ async function saveData() {
             document.getElementById("mobile").value
     });
 }
+async function loadRecords() {
 
+    const select =
+        document.getElementById("recordList");
+
+    select.innerHTML = "";
+
+    const snapshot =
+        await getDocs(collection(db, "users"));
+
+    snapshot.forEach((docSnap) => {
+
+        const data = docSnap.data();
+
+        const option =
+            document.createElement("option");
+
+        option.value = docSnap.id;
+
+        option.textContent =
+            (data.firstName || "") +
+            " " +
+            (data.lastName || "");
+
+        select.appendChild(option);
+
+    });
+}
+loadRecords();
 loadData();
 
 document.querySelectorAll(".value")
