@@ -87,6 +87,18 @@ h1{
 <div class="container">
 
 <h1 style="text-align:center;color:red;">DETAILS</h1>
+<button id="addUserBtn" style="
+padding:12px 20px;
+margin-bottom:15px;
+border:none;
+border-radius:8px;
+background:#16a34a;
+color:white;
+font-size:16px;
+cursor:pointer;
+">
++ Add User
+</button>
 <select id="recordList" style="
 width:100%;
 padding:12px;
@@ -215,7 +227,9 @@ import {
     getDoc,
     updateDoc,
     collection,
-    getDocs
+    getDocs,
+    setDoc,
+    addDoc
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -317,11 +331,41 @@ async function loadRecords() {
 
 });
 }
+
+async function addUser() {
+
+    const snapshot =
+        await getDocs(collection(db, "users"));
+
+    const newId =
+        (1000 + snapshot.size + 1).toString();
+
+    await setDoc(
+        doc(db, "users", newId),
+        {
+            firstName: "",
+            lastName: "",
+            email: "",
+            aadhaar: "",
+            mobile: ""
+        }
+    );
+
+    await loadRecords();
+
+    currentDocId = newId;
+
+    document.getElementById("recordList").value =
+        newId;
+
+    await loadData();
+}
 await loadRecords();
     currentDocId =
     document.getElementById("recordList").value;
 await loadData();
-
+document.getElementById("addUserBtn")
+.addEventListener("click", addUser);
 document.querySelectorAll(".value")
 .forEach(input => {
 
