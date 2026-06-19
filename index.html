@@ -124,6 +124,17 @@ Unlock
 <div class="container" id="mainContent" style="display:none;">
 
 <h1 style="text-align:center;color:red;">DETAILS</h1>
+<button id="logoutBtn" style="
+padding:10px 15px;
+background:#dc2626;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-bottom:15px;
+">
+Logout
+</button>
 <button id="addUserBtn" style="
 padding:12px 20px;
 margin-bottom:15px;
@@ -306,6 +317,7 @@ async function unlockSite() {
 
         document.getElementById("mainContent")
             .style.display = "block";
+        localStorage.setItem("editoLoggedIn", "true");
 
     } else {
 
@@ -437,11 +449,30 @@ document.getElementById("unlockBtn")
 .addEventListener("click", unlockSite);
 document.querySelectorAll(".value")
 .forEach(input => {
-
     input.addEventListener("change", saveData);
+    document.getElementById("logoutBtn")
+.addEventListener("click", () => {
+
+    localStorage.removeItem(
+        "editoLoggedIn"
+    );
+
+    location.reload();
 
 });
-
+});
+</script>
+<script>
+if (
+    localStorage.getItem("editoLoggedIn")
+    === "true"
+) {
+    document.getElementById("loginScreen")
+        .style.display = "none";
+    document.getElementById("mainContent")
+        .style.display = "block";
+    
+}
 </script>
 
 </body>
