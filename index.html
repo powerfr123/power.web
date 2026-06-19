@@ -85,7 +85,43 @@ h1{
 
 <body>
 
-<div class="container">
+<body>
+
+<div id="loginScreen" style="
+max-width:400px;
+margin:100px auto;
+text-align:center;
+">
+
+<h2>Enter Password</h2>
+
+<input
+id="sitePassword"
+type="password"
+placeholder="Password"
+style="
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+font-size:16px;
+">
+
+<button
+id="unlockBtn"
+style="
+margin-top:10px;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+">
+Unlock
+</button>
+
+</div>
+
+<div class="container" id="mainContent" style="display:none;">
 
 <h1 style="text-align:center;color:red;">DETAILS</h1>
 <button id="addUserBtn" style="
@@ -244,6 +280,39 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+async function unlockSite() {
+
+    const entered =
+        document.getElementById("sitePassword").value;
+
+    const settingRef =
+        doc(db, "setting", "config");
+
+    const snap =
+        await getDoc(settingRef);
+
+    if (!snap.exists()) {
+
+        alert("Settings not found");
+        return;
+    }
+
+    const data = snap.data();
+
+    if (entered === data.accessPassword) {
+
+        document.getElementById("loginScreen")
+            .style.display = "none";
+
+        document.getElementById("mainContent")
+            .style.display = "block";
+
+    } else {
+
+        alert("Wrong Password");
+
+    }
+}
 
 let currentDocId = "test";
 
@@ -364,6 +433,8 @@ await loadRecords();
 await loadData();
 document.getElementById("addUserBtn")
 .addEventListener("click", addUser);
+document.getElementById("unlockBtn")
+.addEventListener("click", unlockSite);
 document.querySelectorAll(".value")
 .forEach(input => {
 
