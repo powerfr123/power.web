@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/jpg" href="favicon.jpg" />
 
-<title>edito</title>
+<title>editor</title>
 
 <style>
 
@@ -124,7 +124,7 @@ Unlock
 <div class="container" id="mainContent" style="display:none;">
 
 <h1 style="text-align:center;color:red;">DETAILS</h1>
-<button id="logoutBtn" style="
+<button style="text-align:right;" id="logoutBtn" style="
 padding:10px 15px;
 background:#dc2626;
 color:white;
@@ -277,7 +277,9 @@ import {
     collection,
     getDocs,
     setDoc,
-    addDoc
+    addDoc,
+    onSnapshot
+    
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -327,34 +329,35 @@ async function unlockSite() {
 }
 
 let currentDocId = "test";
+function loadData() {
 
-async function loadData() {
-    const userRef = 
+    const userRef =
         doc(db, "users", currentDocId);
-    
-    const snap =
-        await getDoc(userRef);
 
-    if (!snap.exists()) return;
+    onSnapshot(userRef, (snap) => {
 
-    const data = snap.data();
+        if (!snap.exists()) return;
 
-    document.getElementById("firstName").value =
-        data.firstName || "";
+        const data = snap.data();
 
-    document.getElementById("lastName").value =
-        data.lastName || "";
+        document.getElementById("firstName").value =
+            data.firstName || "";
 
-    document.getElementById("email").value =
-        data.email || "";
+        document.getElementById("lastName").value =
+            data.lastName || "";
 
-    document.getElementById("aadhaar").value =
-        data.aadhaar || data.aadhar_No || "";
+        document.getElementById("email").value =
+            data.email || "";
 
-    document.getElementById("mobile").value =
-        data.mobile || data.mobile_No || "";
+        document.getElementById("aadhaar").value =
+            data.aadhaar || "";
+
+        document.getElementById("mobile").value =
+            data.mobile || "";
+
+    });
+
 }
-
 async function saveData() {
     const userRef =
         doc(db, "users", currentDocId);
